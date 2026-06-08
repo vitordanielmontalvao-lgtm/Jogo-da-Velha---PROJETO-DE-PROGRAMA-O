@@ -36,8 +36,6 @@ char v(char m[3][3])
 int main()
 {
     setlocale(LC_ALL, "Portuguese");
-    
-
 
     char m[3][3];
     int i, j, c, confirmacao, venceu, v1=0, v2=0, comeco;
@@ -46,11 +44,11 @@ int main()
     scanf("%s", &n1);
     printf("\nDigite o nome do Jogador 2: \n");
     scanf("%s", &n2);
-    printf("\nDigite o número do jogador que começará jogando: %s(1) ou %s(2) \n", n1, n2);
-    scanf("%d", &comeco);
 
     do
     {
+        printf("\nDigite o número do jogador que começará jogando: %s(1) ou %s(2) \n", n1, n2);
+        scanf("%d", &comeco);
         int jogadas = 0;
         int venceu = 0;
         char a = '1';
@@ -77,7 +75,7 @@ int main()
         while(jogadas < 9 && venceu == 0)
         {
             int jogador;
-     
+
             if(comeco == 1)
               {
                jogador = (jogadas % 2) + 1;
@@ -88,8 +86,7 @@ int main()
               }
 
             char simbolo = (jogador == 1) ? 'X' : 'O';
-            
-       
+
             if(jogador == 1)
              {
               printf("%s (%c): ", n1, simbolo);
@@ -99,7 +96,7 @@ int main()
               printf("%s (%c): ", n2, simbolo);
              }
             scanf("%d", &c);
-            
+
             switch(c)
             {
                 case 1 ... 9:
@@ -109,7 +106,7 @@ int main()
 
                     if(m[i][j] == 'X' || m[i][j] == 'O')
                     {
-                        printf("\nEsse espaço já foi preenchido! Escolha outro\n");
+                        printf("\nEsse espaço já foi preenchido! Escolha outro. \n");
                         printf("\n");
                         for(i = 0; i < 3; i++)
                         {
@@ -140,7 +137,6 @@ int main()
                         }
                         printf("\n");
 
-                       
                         char vencedor = v(m);
 
                         if(vencedor == 'X')
@@ -162,9 +158,9 @@ int main()
 
                         if(jogadas == 9 && venceu == 0)
                         {
-                            printf("Empate (Deu velha)!\n");
+                            printf("Empate (Velha) \n");
                         }
-                        
+
                     }
 
                     break;
@@ -173,8 +169,8 @@ int main()
                     printf("\nInválido\n");
             }
         }
-       
-        printf("Deseja continuar jogando? Digite 1 para Sim ou digite 0 para Não\n\n");
+
+        printf("Continuar jogo?\n\n");
         printf("1 - Sim\n");
         printf("0 - Não\n\n");
 
